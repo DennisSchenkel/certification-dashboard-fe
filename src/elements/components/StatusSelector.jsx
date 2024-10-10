@@ -20,23 +20,16 @@ export default function StatusSelector({ projectId, sectionId, categoryId, crite
         fetchData();
     }, [projectId, sectionId, categoryId, criterionId]);
 
-    const handleStatusChange = async (event) => { // Async Funktion
+    const handleStatusChange = async (event) => {
         const newStatus = event.target.value;
         setStatusSelector(newStatus);
         console.log(newStatus);
         try {
-            const token = localStorage.getItem('authToken'); // Token abrufen
             await axiosDefault.post(
                 `/projects/${projectId}/criteria/${criterionId}/result/`,
                 { status: newStatus },
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`, // Token hinzufügen
-                    },
-                }
             );
-            onStatusChange(newStatus); // Elternkomponente informieren
+            onStatusChange(newStatus);
         } catch (error) {
             setError('Berechtigung verweigert oder Fehler beim Aktualisieren.');
             console.error(error);

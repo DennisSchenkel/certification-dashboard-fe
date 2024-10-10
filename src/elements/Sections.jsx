@@ -33,7 +33,7 @@ export default function Sections({projectId, section}) {
                 <div className="row">
                     {
                         categories.map((category) => (                        
-                            <div key={category.id} className="col-2 mt-1">
+                            <div key={category.id} className="col-xxl-2 col-6 mt-1 mb-4">
                                 <Categories projectId={projectId} sectionId={section.id} category={category} />
                             </div>
                         ))
