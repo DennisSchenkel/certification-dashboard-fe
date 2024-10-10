@@ -1,12 +1,54 @@
-import './App.css'
-import Dashboard from './components/dashboard'
+import { useEffect, useState } from "react";
+import ProjectDashboard from "./elements/ProjectDashboard";
+import Home from "./Home";
+import axiosDefault from "./api/axiosDefault";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-    return (
+  const [projects, setProjects] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true); // Optional: Ladezustand
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axiosDefault.get("/projects/");
+        const projects = response.data;
+        setProjects(projects);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>; // Optional: Ladeanzeige
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  return (
     <>
-      <Dashboard />
+      <div>
+        <h1>CBRE Smart Building Certification Dashboard</h1>
+      </div>
+      <Routes>
+        {/* Startseite */}
+        <Route path="/" element={<Home projects={projects} />} />
+
+        {/* Parameterisierte Route für Dashboard */}
+        <Route path="/dashboard/:projectId" element={<ProjectDashboard />} />
+
+        {/* Optional: 404-Seite */}
+        <Route path="*" element={<div>404 - Seite nicht gefunden</div>} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

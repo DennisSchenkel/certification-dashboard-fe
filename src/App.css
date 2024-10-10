@@ -1,6 +1,163 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  padding: 20px 20px 20px 20px;
+  background-color: #FAF8FF;
+  min-height: 1200px;
+}
+
+.background {
+  background-color: #592929;
+}
+
+.custom-h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.custom-h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.custom-h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.status-out-of-scope {
+  background-color: rgb(200, 200, 200);
+  color: #000000;
+}
+
+.status-in-scope {
+  background-color: rgb(168, 213, 186);
+  color: #ffffff;
+}
+
+.status-definition-defined {
+  background-color: rgb(112, 193, 179);
+  color: #ffffff;
+}
+
+.status-planning-review {
+  background-color: rgb(56, 178, 166);
+  color: #ffffff;
+}
+
+.status-auditor-check {
+  background-color: rgb(46, 139, 87);
+  color: #ffffff;
+}
+
+.status-approval {
+  background-color: rgb(0, 100, 0);
+  color: #ffffff;
+}
+
+.progress {
+  position: relative;
+  height: 20px;
+  margin-top: 5px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-label {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.8em;
+  color: #000000;
+  pointer-events: none;
+}
+
+.progress-bar {
+  border-radius: 5px 0 0 5px;
+}
+
+.progress:last-child .progress-bar {
+  border-radius: 0 5px 5px 0;
+}
+
+.modal-dialog {
+  max-width: 1200px;
+}
+
+.modal-body {
+  padding: 0 0 0 0;
+
+}
+
+.criterion {
+  background-color: #ffffff;
+}
+
+.criterion:hover {
+  box-shadow: 0 0 0 1px #586B73;
+  transition: .3s ease;
+}
+
+.criterion-title {
+  padding-left: 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background-color: #142B36;
+  color: #ffffff;
+}
+
+.criterion-status {
+  padding: 20px 20px 20px 20px;
+  height: 100%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background-color: #FAF8FF;
+}
+
+.criterion-category {
+  padding: 10px 10px 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #586B73;
+  color: #ffffff;
+}
+
+.criterion-about {
+  padding: 20px 20px 20px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: #E7EAEB;
+}
+
+.criterion-misc {
+  padding: 20px 20px 20px 20px;
+} 
+
+.criterion-functionality-title {
+  height: 30px;
+  margin: 0 5px 0 5px;
   text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background-color: #142B36;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+.criterion-requirements-title {
+  padding: 20px 20px 0px 20px;
+} 
+
+.criterion-requirements-proof {
+  padding: 20px 20px 20px 20px;
+  margin: 0 20px 0 20px;
+  border: solid 1px #142B36;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
 }
