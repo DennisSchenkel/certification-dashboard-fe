@@ -9,7 +9,7 @@ export default function ProjectDashboard() {
 
     const [error, setError] = useState(null);
     const [sections, setSections] = useState([]);
-
+    const [project, setProject] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -18,6 +18,14 @@ export default function ProjectDashboard() {
                 const sections = response.data;
                 setSections(sections);
             } catch (error) {
+                setError(error);
+            }
+            try {
+                const response = await axiosDefault.get(`/projects/${projectId}/`);
+                const project = response.data;
+                setProject(project);
+            }
+            catch (error) {
                 setError(error);
             }
         }
@@ -31,6 +39,7 @@ export default function ProjectDashboard() {
 
     return (
         <>
+            <h2><i>{project.name}</i></h2>
             <Link to="/">Projekt Übersicht</Link>
             {      
                 sections.map((section) => (
