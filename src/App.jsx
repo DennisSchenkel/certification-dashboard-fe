@@ -4,10 +4,10 @@ import Home from "./Home";
 import axiosDefault from "./api/axiosDefault";
 import { Routes, Route } from "react-router-dom";
 
-function App() {
+export default function App() {
   const [projects, setProjects] = useState([]);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true); // Optional: Ladezustand
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,7 +25,7 @@ function App() {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>; // Optional: Ladeanzeige
+    return <div>Loading...</div>;
   }
 
   if (error) {
@@ -50,5 +50,3 @@ function App() {
     </>
   );
 }
-
-export default App;

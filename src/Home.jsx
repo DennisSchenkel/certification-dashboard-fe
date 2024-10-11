@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Home({ projects }) {
+export default function Home({ projects }) {
   return (
     <div>
       <h2>Wählen Sie ein Projekt</h2>
@@ -14,5 +14,3 @@ function Home({ projects }) {
     </div>
   );
 }
-
-export default Home;

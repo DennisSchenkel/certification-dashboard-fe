@@ -63,6 +63,7 @@ export default function Criterion({ projectId, sectionId, categoryId, criterionI
                 </div>
             </div>
 
+            {/* Modal mit Kriteriums-Details */}
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton className="criterion-title">
                 <Modal.Title >{criterion.prefix} - {criterion.name}</Modal.Title>
